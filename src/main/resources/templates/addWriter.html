@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Library</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<a th:href="@{/}" id="main">Go to the main page</a><br/>
+<form method="POST" th:action="@{/addWriter}" th:object="${Writer}">
+    <h1>Add new writer</h1>
+
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+        Please correct the problems below and resubmit.
+        </span>
+    </div>
+
+    <label for="writerFName">First name: </label>
+    <input type="text" th:field="*{writerFName}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('writerFName')}"
+          th:errors="*{writerFName}">Name Error</span>
+    <br/>
+
+    <label for="writerSName">Second name: </label>
+    <input type="text" th:field="*{writerSName}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('writerSName')}"
+          th:errors="*{writerSName}">Second name Error</span>
+    <br/>
+
+    <label for="dateBirth">Date of birth: </label>
+    <input type="text" th:field="*{dateBirth}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('dateBirth')}"
+          th:errors="*{dateBirth}">Date of Birth Error</span>
+    <br/>
+
+    <label for="placeBirth">Place of Birth: </label>
+    <input type="text" th:field="*{placeBirth}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('placeBirth')}"
+          th:errors="*{placeBirth}">Place of Birth Error</span>
+    <br/>
+    <input type="submit" value="Add Writer"/>
+</form>
+</body>
+</html>

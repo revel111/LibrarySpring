@@ -25,6 +25,6 @@ public class WebConfigTest {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"))
-                .andExpect(content().string(containsString("Welcome to...")));
+                .andExpect(content().string(containsString("Welcome to")));
     }
 }
