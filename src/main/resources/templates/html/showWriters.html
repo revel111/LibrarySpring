@@ -5,6 +5,24 @@
     <title>Online Library</title>
 </head>
 <body>
-
+<div>
+    <a th:href="@{/}" id="main">Go to the main page</a><br/>
+    <table>
+        <tbody>
+        <tr>
+            <th>First name</th>
+            <th>Second name</th>
+            <th>Date of birth</th>
+            <th>Place of birth</th>
+        </tr>
+        <tr th:each="writer: ${writers}">
+            <td th:text="${writer.writerFName}"></td>
+            <td th:text="${writer.writerSName}"></td>
+            <td th:text="${writer.dateBirth}"></td>
+            <td th:text="${writer.placeBirth}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

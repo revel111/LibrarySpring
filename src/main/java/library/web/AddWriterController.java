@@ -3,6 +3,7 @@ package library.web;
 import library.custom.Writer;
 import library.data.WriterRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,17 @@ import javax.validation.Valid;
 @RequestMapping("/addWriter")
 @SessionAttributes("Writer")
 public class AddWriterController {
+    @Autowired
+    WriterRepository writerRepository;
+
     @ModelAttribute(name = "Writer")
     public Writer writer() {
         return new Writer();
+    }
+
+    @GetMapping(value = "/static")
+    public String goToManePage() {
+        return "redirect:/";
     }
 
     @GetMapping
@@ -30,6 +39,7 @@ public class AddWriterController {
         if (errors.hasErrors())
             return "html/addWriter";
 
+        writerRepository.save(writer);
         log.info("Writer added: {}", writer);
         sessionStatus.setComplete();
 
