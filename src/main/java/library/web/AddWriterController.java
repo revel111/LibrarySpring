@@ -1,6 +1,7 @@
 package library.web;
 
 import library.custom.Writer;
+import library.data.WriterRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -21,13 +22,13 @@ public class AddWriterController {
 
     @GetMapping
     public String showAddWriter() {
-        return "addWriter";
+        return "html/addWriter";
     }
 
     @PostMapping
     public String processWriter(@Valid Writer writer, Errors errors, SessionStatus sessionStatus) {
         if (errors.hasErrors())
-            return "addWriter";
+            return "html/addWriter";
 
         log.info("Writer added: {}", writer);
         sessionStatus.setComplete();
