@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" lang="EN">
 <head>
     <title>Online Library</title>
-    <link rel="stylesheet" th:href="@{/templates/css/styles.css}" />
+    <link rel="stylesheet" th:href="@{/templates/css/styles.css}"/>
+
+    <script src="https://localhost:35729/livereload.js"></script>
 </head>
 <body>
 <a th:href="@{/}" id="main">Go to the main page</a><br/>
@@ -17,25 +19,33 @@
     </div>
 
     <label for="writerFName">First name: </label>
-    <input type="text" th:field="*{writerFName}"/>
+    <label>
+        <input type="text" th:field="*{writerFName}"/>
+    </label>
     <span class="validationError" th:if="${#fields.hasErrors('writerFName')}"
           th:errors="*{writerFName}">Name Error</span>
     <br/>
 
     <label for="writerSName">Second name: </label>
-    <input type="text" th:field="*{writerSName}"/>
+    <label>
+        <input type="text" th:field="*{writerSName}"/>
+    </label>
     <span class="validationError" th:if="${#fields.hasErrors('writerSName')}"
           th:errors="*{writerSName}">Second name Error</span>
     <br/>
 
     <label for="dateBirth">Date of birth: </label>
-    <input type="text" th:field="*{dateBirth}"/>
+    <label>
+        <input type="text" th:field="*{dateBirth}"/>
+    </label>
     <span class="validationError" th:if="${#fields.hasErrors('dateBirth')}"
           th:errors="*{dateBirth}">Date of Birth Error</span>
     <br/>
 
     <label for="placeBirth">Place of Birth: </label>
-    <input type="text" th:field="*{placeBirth}"/>
+    <label>
+        <input type="text" th:field="*{placeBirth}"/>
+    </label>
     <span class="validationError" th:if="${#fields.hasErrors('placeBirth')}"
           th:errors="*{placeBirth}">Place of Birth Error</span>
     <br/>

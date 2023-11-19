@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @SessionAttributes("Writer")
 public class AddWriterController {
     @Autowired
-    WriterRepository writerRepository;
+    private WriterRepository writerRepository;
 
     @ModelAttribute(name = "Writer")
     public Writer writer() {
