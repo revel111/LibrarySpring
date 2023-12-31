@@ -24,7 +24,7 @@ public class AddWriterController {
         return new Writer();
     }
 
-    @GetMapping(value = "/static")
+    @GetMapping(value = "/main")
     public String goToManePage() {
         return "redirect:/";
     }

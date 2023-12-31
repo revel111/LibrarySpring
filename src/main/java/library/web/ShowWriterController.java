@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
-@RequestMapping("showWriters")
-public class ShowWritersController {
+@RequestMapping("showWriter")
+public class ShowWriterController {
     @Autowired
     private WriterRepository writerRepository;
 
-    @GetMapping(value = "/static")
+    @GetMapping(value = "/main")
     public String goToManePage() {
-        return "redirect:/";
+        return "/";
     }
 
     @GetMapping
     public String getAllWriters(Model model) {
         model.addAttribute("writers", writerRepository.findAll());
-        return "html/showWriters";
+        return "html/showWriter";
     }
 }

@@ -6,9 +6,11 @@
 </head>
 
 <body>
-<div style="text-align: center;">Welcome to the Library</div>
-<a th:href="@{/manageWriter}" id="manageWriters">Manage writers</a><br/>
-
+<a th:href="@{/}" id="main">Go to the main page</a><br/>
+<form>
+    <p><input type="search" name="q" placeholder="Search for a book">
+        <input type="submit" value="Search"></p>
+</form>
 <!--<form style="text-align: center" action="" method="get">-->
 <!--    <input name="s" placeholder="Type..." type="search">-->
 <!--    <button type="submit">Search</button>-->

@@ -1,9 +1,11 @@
 package library.data;
 
-import library.custom.Writer;
+import library.custom.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+
 @RepositoryRestResource
-public interface WriterRepository extends CrudRepository<Writer, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findByUsername(String username);
 }
